@@ -33,6 +33,7 @@ public class MVCConfig extends WebMvcConfigurerAdapter {
 	
 	 @Override
 	 public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer){
+		 System.out.println("==============");
 	   configurer.enable();
 	 }		
 
