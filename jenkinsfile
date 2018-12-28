@@ -1,0 +1,15 @@
+node {
+    stage('compil_and_Package') {
+      git 'https://github.com/raghub0516/spring-project.git'
+      bat 'mvn clean package -DskipTests'
+    }
+    stage('UNIT_test') {
+      bat 'mvn surefire:test'
+      step([$class: 'Publisher'])
+    }
+    stage('Code_Anylysisi') {
+      withSonarQubeEnv {
+     bat 'mvn sonar:sonar'
+    }
+    }
+}
